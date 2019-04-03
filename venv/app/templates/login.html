@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Sign Page</h1>
+<form action="" method="POST" novalidate>
+	 {{form.hidden_tag()}}
+	<p>
+		{{form.username.label}} <br>
+		{{form.username(size=40)}}
+		{% for error in form.username.errors %}
+		<span style="color:red">{{ error }}</span>
+		{% endfor %}
+	</p>
+	<p>
+		{{form.password.label}} <br>
+		{{form.password(size=40)}}
+		{% for error in form.username.errors %}
+		<span style="color:red">{{ error }}</span>
+		{% endfor %}
+	</p>
+	<p>
+		{{form.remember_me()}} {{form.remember_me.label}} <br>
+	</p>
+	<p>
+		{{form.submit()}}  <br>
+	</p>
+
+	<p>
+		New User ? <a href="{{url_for('register')}}"> Click here for Registration</a>
+	</p>
+</form>
+
+{% endblock %}
